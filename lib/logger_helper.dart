@@ -1,7 +1,5 @@
 library logger_helper;
 
-import 'dart:developer' as developer;
-
 class Logger {
   // Define color escape codes
   static const String _reset = '\x1B[0m';
@@ -12,30 +10,27 @@ class Logger {
 
   // Log error messages
   static void error(String message, {String name = 'Logger'}) {
-    developer.log('$_errorColor[ERROR] $_errorColor$message',
-        name: '$_errorColor$name');
+    print('$_errorColor[ERROR] [$_errorColor$name] $_errorColor$message');
   }
 
   // Log info messages
   static void info(String message, {String name = 'Logger'}) {
-    developer.log('$_infoColor[INFO] $_infoColor$message',
-        name: '$_infoColor$name');
+    print('$_infoColor[INFO][$_infoColor$name] $_infoColor$message');
   }
 
   // General log without color (just message)
   static void log(String message, {String name = 'Logger'}) {
-    developer.log(message, name: name);
+    print(message + name);
   }
 
   // Log success messages
   static void success(String message, {String name = 'Logger'}) {
-    developer.log('$_successColor[SUCCESS] $_successColor$message',
-        name: '$_successColor$name');
+    print(
+        '$_successColor[SUCCESS][$_successColor$name] $_successColor$message');
   }
 
   // Log warning messages
   static void warn(String message, {String name = 'Logger'}) {
-    developer.log('$_warnColor[WARNING] $_warnColor$message',
-        name: '$_warnColor$name');
+    print('$_warnColor[WARNING][$_warnColor$name] $_warnColor$message');
   }
 }
